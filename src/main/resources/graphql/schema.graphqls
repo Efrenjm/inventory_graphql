@@ -1,0 +1,22 @@
+type Location {
+  id: ID,
+  state: String,
+  address: String,
+  phoneNumber: String
+}
+
+type Item {
+  id: ID
+  name: String
+  description: String,
+  location: Location
+}
+
+schema {
+  query: Query
+}
+
+type Query {
+  getAllItems: [Item]
+  getItemById(id: ID): Item
+}
