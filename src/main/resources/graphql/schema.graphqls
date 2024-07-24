@@ -14,9 +14,16 @@ type Item {
 
 schema {
   query: Query
+  mutation: Mutation
 }
 
 type Query {
   getAllItems: [Item]
   getItemById(id: ID): Item
+}
+
+type Mutation {
+    createItem(id: Int, name: String, description: String, locationId: Int, state: String, address: String, phoneNumber: String): Item
+#    updateItem(id: ID, name: String, description: String, location: Location): Item
+#    deleteItem(id: ID): Item
 }
