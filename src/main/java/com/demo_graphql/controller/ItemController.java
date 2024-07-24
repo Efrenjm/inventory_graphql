@@ -33,8 +33,8 @@ public class ItemController {
         return appService.createItem(id, name, description, locationId, state, address, phoneNumber);
     }
 
-//    @MutationMapping
-//    public void deleteItem(@Argument Integer id) {
-//        appService.deleteItem(id);
-//    }
+    @MutationMapping
+    public void deleteItem(@Argument Integer id) {
+        appService.deleteItem(id);
+    }
 }
