@@ -29,12 +29,17 @@ public class ItemController {
     }
 
     @MutationMapping
-    public ItemDto createItem(@Argument int id, @Argument String name, @Argument String description, @Argument int locationId, @Argument String state, @Argument String address, @Argument String phoneNumber) {
-        return appService.createItem(id, name, description, locationId, state, address, phoneNumber);
+    public ItemDto createItem(@Argument ItemDto item) {
+        return appService.createItem(item);
     }
 
     @MutationMapping
     public void deleteItem(@Argument Integer id) {
         appService.deleteItem(id);
+    }
+
+    @MutationMapping
+    public ItemDto updateItem(@Argument ItemDto item) {
+        return appService.updateItem(item);
     }
 }

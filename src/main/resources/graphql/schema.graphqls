@@ -1,29 +1,41 @@
 type Location {
-  id: ID,
-  state: String,
-  address: String,
-  phoneNumber: String
+    id: ID,
+    state: String,
+    address: String,
+    phoneNumber: String
 }
 
 type Item {
-  id: ID
-  name: String
-  description: String,
-  location: Location
+    id: ID
+    name: String
+    description: String,
+    location: Location
+}
+input LocationInput {
+    id: ID,
+    state: String,
+    address: String,
+    phoneNumber: String
+}
+input ItemInput {
+    id: ID
+    name: String
+    description: String,
+    location: LocationInput
 }
 
 schema {
-  query: Query
-  mutation: Mutation
+    query: Query
+    mutation: Mutation
 }
 
 type Query {
-  getAllItems: [Item]
-  getItemById(id: ID): Item
+    getAllItems: [Item]
+    getItemById(id: ID): Item
 }
 
 type Mutation {
-    createItem(id: Int, name: String, description: String, locationId: Int, state: String, address: String, phoneNumber: String): Item
-#    updateItem(id: ID, name: String, description: String, location: Location): Item
+    createItem(item: ItemInput): Item
+    updateItem(item: ItemInput): Item
     deleteItem(id: ID): Item
 }
